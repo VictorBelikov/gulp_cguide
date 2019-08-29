@@ -1,0 +1,10 @@
+a {
+  color: white;
+  font-size: 15px;
+  &:hover {
+    background: #000;
+    height: 50px;
+    display: block;
+    text-align: center;
+  }
+}
