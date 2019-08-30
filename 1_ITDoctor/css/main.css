@@ -4,6 +4,7 @@ a {
   a:hover {
     background: #000;
     height: 50px;
+    width: 100px;
     display: block;
     text-align: center; }
 

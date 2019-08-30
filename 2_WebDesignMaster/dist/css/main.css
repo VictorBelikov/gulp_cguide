@@ -1,0 +1,12 @@
+body {
+  font-size: 22px; }
+
+body {
+  background: #aaa; }
+
+#test {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; }
+
+/*# sourceMappingURL=main.css.map */
