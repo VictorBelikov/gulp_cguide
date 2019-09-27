@@ -1,1 +1,3 @@
-const multiple = (a, b) => a * b;
+function multiple(a, b) {
+  return a * b;
+}
