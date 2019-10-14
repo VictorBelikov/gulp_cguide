@@ -1,5 +1,4 @@
 // https://www.youtube.com/watch?v=r2S423N-ETA
-// https://www.youtube.com/watch?v=izqR0UY11rk - next
 
 const gulp = require('gulp');
 const concat = require('gulp-concat');
@@ -17,14 +16,17 @@ const styles = () => {
     .pipe(concat('style.css'))
     .pipe(autoprefixer({ browsers: ['last 5 versions'], cascade: false }))
     .pipe(cleanCSS({ level: 2 }))
-    .pipe(gulp.dest('build/css'));
+    .pipe(gulp.dest('build/css'))
+    .pipe(browserSync.stream());
+
 };
 
 const scripts = () => {
   return gulp.src(jsFiles)
     .pipe(concat('script.js'))
     .pipe(uglify({ toplevel: true })) // minify and remove " ", ",", ";"; doesn't support ES6; toplevel - изменяет даже название фукнций до коротких
-    .pipe(gulp.dest('build/js'));
+    .pipe(gulp.dest('build/js'))
+    .pipe(browserSync.stream());
 };
 
 const clean = () => {
@@ -44,3 +46,8 @@ const watch = () => {
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
 gulp.task('del', clean);
+gulp.task('watch', watch);
+gulp.task('build', gulp.series(clean, gulp.parallel(styles, scripts)));
+gulp.task('dev', gulp.series('build', 'watch'));
+
+gulp.task('default', gulp.series('dev'));

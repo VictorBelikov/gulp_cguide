@@ -1,17 +1,17 @@
 // https://www.youtube.com/watch?v=vW51JUVT66w&t
 // https://www.youtube.com/watch?v=kesyrCZE1bA&t
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const browserSync = require('browser-sync');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglifyjs');
-const cssnano = require('gulp-cssnano');
-const rename = require('gulp-rename');
-const del = require('del');
-const imagemin = require('gulp-imagemin');
-const pngquant = require('imagemin-pngquant');
-const cache = require('gulp-cache');
+const gulp         = require('gulp');
+const sass         = require('gulp-sass');
+const sourcemaps   = require('gulp-sourcemaps');
+const browserSync  = require('browser-sync');
+const concat       = require('gulp-concat');
+const uglify       = require('gulp-uglifyjs');
+const cssnano      = require('gulp-cssnano');
+const rename       = require('gulp-rename');
+const del          = require('del');
+const imagemin     = require('gulp-imagemin');
+const pngquant     = require('imagemin-pngquant');
+const cache        = require('gulp-cache');
 const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', () => {
@@ -27,7 +27,7 @@ gulp.task('sass', () => {
 gulp.task('scripts', () => {
   return gulp.src(['app/libs/jquery/dist/jquery.min.js', 'app/libs/magnific-popup/jquery.magnific-popup.min.js'])
     .pipe(concat('libs.min.js')) // concat JS
-    .pipe(uglify({ toplevel: true })) // minify and remove " ", ",", ";"; doesn't support ES6; toplevel - изменяет даже название фукнций до коротких
+    .pipe(uglify()) // minify and remove " ", ",", ";"; doesn't support ES6
     .pipe(gulp.dest('app/js'));
 });
 
